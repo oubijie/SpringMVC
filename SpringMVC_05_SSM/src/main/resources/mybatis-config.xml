@@ -7,9 +7,10 @@
       <package name="com.veryoo.entity" />
     </typeAliases>
     
-    <!-- 分页插件 -->
-    <!-- <plugins>
-        <plugin interceptor="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"></plugin>
-    </plugins> -->
+    <plugins>
+	    <plugin interceptor="com.github.pagehelper.PageInterceptor">
+	        <property name="helperDialect" value="mysql"/>
+	    </plugin>
+	</plugins>
     
 </configuration>

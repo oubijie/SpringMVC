@@ -7,4 +7,8 @@ import com.veryoo.entity.Book;
 public interface BookService {
 
 	List<Book> getAllBooks();
+	
+	void saveBook(Book book);
+	
+	List<Book> getBookPage(int pageNum, int pageSize);
 }
