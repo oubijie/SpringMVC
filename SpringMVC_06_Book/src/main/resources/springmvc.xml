@@ -28,6 +28,13 @@
 		</property>
 	</bean>
 	
+	<!-- 上传文件 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxInMemorySize" value="10240"></property><!-- 使用的最大内存 -->
+		<property name="maxUploadSize" value="5242880"></property><!--上传文件的最大值 -->
+	</bean>
+	
 	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 	
     <mvc:default-servlet-handler/>

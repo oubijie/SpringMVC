@@ -10,11 +10,12 @@
 </head>
 <body>
 <h3>新增图书</h3>
-<form action="${ctx }/book/save" method="post">
+<form action="${ctx }/book/save" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="${book.id }"/>
 书名：<input type="text" name="name" value="${book.name }"/><br/>
 作者：<input type="text" name="author" value="${book.author }"/><br/>
 出版日期：<input type="date" name="publishDate" value="${book.publishDate }"/><br/>
+封面：<input type="file" name="picFile" /><br/>
 <input type="submit" value="保存"/>
 </form>
 </body>
