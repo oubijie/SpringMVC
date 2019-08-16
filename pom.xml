@@ -11,5 +11,6 @@
     <module>SpringMVC_03_Binding</module>
     <module>SpringMVC_04_ModelAndView</module>
     <module>SpringMVC_05_SSM</module>
+    <module>SpringMVC_06_Book</module>
   </modules>
 </project>
