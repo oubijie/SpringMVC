@@ -7,9 +7,7 @@
     <artifactId>SpringMVC</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.veryoo</groupId>
   <artifactId>SpringMVC_01_HelloWorld</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>SpringMVC_01_HelloWorld Maven Webapp</name>
   <url>http://maven.apache.org</url>

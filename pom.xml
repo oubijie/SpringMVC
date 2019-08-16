@@ -8,5 +8,8 @@
   <modules>
     <module>SpringMVC_01_HelloWorld</module>
     <module>SpringMVC_02_RequestMapping</module>
+    <module>SpringMVC_03_Binding</module>
+    <module>SpringMVC_04_ModelAndView</module>
+    <module>SpringMVC_05_SSM</module>
   </modules>
 </project>
