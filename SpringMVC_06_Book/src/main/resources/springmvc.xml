@@ -19,7 +19,17 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
     
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <!-- 自定义转换器 -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.veryoo.util.DateConverter"></bean>
+			</list>
+		</property>
+	</bean>
+	
+	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+	
     <mvc:default-servlet-handler/>
 
 </beans>
