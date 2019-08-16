@@ -41,7 +41,7 @@
       <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
     </table> -->
     
-    <table tableName="book"></table>
+    <table tableName="user"></table>
 
   </context>
 </generatorConfiguration>
