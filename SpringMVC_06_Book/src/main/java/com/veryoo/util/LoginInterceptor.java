@@ -39,7 +39,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 
 		String uri = req.getRequestURI();
 		uri = uri.replace(contextPath, "");
-		System.out.println("=================uri:" + uri);
 
 		if (!Arrays.asList(noNeedAuthPage).contains(uri)) {
 			if (session.getAttribute("loginUser") == null) {
