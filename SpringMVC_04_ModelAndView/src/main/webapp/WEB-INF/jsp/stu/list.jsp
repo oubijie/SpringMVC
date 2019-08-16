@@ -9,6 +9,8 @@
 </head>
 <body>
 <h1>学生列表</h1>
+<p>param.msg: ${param.msg }</p>
+<p>msg: ${msg }</p>
 <table border="1">
 <tr><th>ID</th><th>name</th><th>age</th></tr>
 
