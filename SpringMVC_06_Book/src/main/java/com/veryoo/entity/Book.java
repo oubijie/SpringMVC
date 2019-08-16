@@ -11,7 +11,7 @@ public class Book {
 
     private String author;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date publishDate;
 
     private String pic;
