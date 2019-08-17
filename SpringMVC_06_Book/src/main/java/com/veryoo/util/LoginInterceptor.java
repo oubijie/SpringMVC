@@ -35,7 +35,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
 		HttpSession session = req.getSession();
 		String contextPath = session.getServletContext().getContextPath();
-		String[] noNeedAuthPage = { "/login", "/logout", "/register" };
+		String[] noNeedAuthPage = { "/login", "/logout", "/register", "/exists" };
 
 		String uri = req.getRequestURI();
 		uri = uri.replace(contextPath, "");
