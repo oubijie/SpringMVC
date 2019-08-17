@@ -11,9 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.veryoo.entity.Book;
 import com.veryoo.service.BookService;
@@ -83,4 +85,37 @@ public class BookController {
 		bookService.saveBook(book);
 		return "redirect:/book/list";
 	}
+	
+	@RequestMapping("/ex")
+	public String ex() {
+		System.out.println(10/0);
+		return "book/edit";
+	}
+	
+	@RequestMapping("/or")
+	public String or() {
+		int[] arr = {1};
+		System.out.println(arr[4]);
+		return "book/edit";
+	}
+	
+	@RequestMapping("/np")
+	public String np() {
+		Object o = null;
+		System.out.println(o.equals(""));
+		return "book/edit";
+	}
+	
+	@ExceptionHandler({ArithmeticException.class})
+	public ModelAndView handArithmeticException(Exception ex) {
+		System.out.println(ex);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("error/err");
+		mv.addObject("exception", ex);
+		return mv;
+	}
+	
+	
+	
+	
 }
