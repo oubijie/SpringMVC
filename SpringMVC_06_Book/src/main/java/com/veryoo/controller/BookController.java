@@ -106,6 +106,11 @@ public class BookController {
 		return "book/edit";
 	}
 	
+	/**
+	 * 异常处理，只能处理本类抛出的特定异常
+	 * @param ex
+	 * @return
+	 */
 	@ExceptionHandler({ArithmeticException.class})
 	public ModelAndView handArithmeticException(Exception ex) {
 		System.out.println(ex);
