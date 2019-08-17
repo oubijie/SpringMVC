@@ -2,11 +2,16 @@ package com.veryoo.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -45,8 +50,17 @@ public class BookController {
 	}
 	
 	@RequestMapping("/save")
-	public String save(Book book, MultipartFile picFile) {
-		if(picFile != null) {
+	public String save(@Validated @ModelAttribute("book") Book book, BindingResult br, MultipartFile picFile, Model model) {
+		if(br.hasErrors()) {
+			List<FieldError> list = br.getFieldErrors();
+			for(FieldError err : list) {
+				System.out.println("--------------" + err.getDefaultMessage());
+			}
+			
+			return "book/edit";
+		}
+		
+		if(picFile != null && picFile.getSize() > 0) {
 			System.out.println("=============" + picFile.getName());
 			System.out.println("=============" + picFile.getSize());
 			System.out.println("=============" + picFile.getOriginalFilename());
@@ -64,7 +78,6 @@ public class BookController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
 		
 		bookService.saveBook(book);

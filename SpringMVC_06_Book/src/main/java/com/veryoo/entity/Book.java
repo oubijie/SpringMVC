@@ -2,15 +2,22 @@ package com.veryoo.entity;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Book {
     private Integer id;
 
+    @Size(min=1, max=5, message="{book.name.size}")
     private String name;
 
+    @Size(min=1, message="{book.author.null}")
     private String author;
 
+    @NotNull(message="{book.publishDate.null}")
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date publishDate;
 
